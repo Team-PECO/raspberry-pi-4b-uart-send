@@ -86,12 +86,11 @@ def create_autodrive_frame(root):
 
 def send_uart(data):
     print(data)
-    return;
-    uart.write(data.encode())
+    uart.write(str(data).encode())
 
 def main():
     global uart
-    # uart = serial.Serial('/dev/serial0', baudrate=9600, timeout=1)
+    uart = serial.Serial('/dev/ttyTHS1', baudrate=9600, timeout=10)
 
     root = tk.Tk()
     root.title("PECO")
